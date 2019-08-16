@@ -4,9 +4,8 @@
 """
 
 
-from keras.models import Model
-from keras.layers import Input, Conv2D, GlobalAveragePooling2D, Reshape
-from keras.utils.vis_utils import plot_model
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, Conv2D, GlobalAveragePooling2D, Reshape
 
 from model.mobilenet_base import MobileNetBase
 
@@ -28,11 +27,8 @@ class MobileNetV3_Small(MobileNetBase):
         super(MobileNetV3_Small, self).__init__(shape, n_class, alpha)
         self.include_top = include_top
 
-    def build(self, plot=False):
+    def build(self):
         """build MobileNetV3 Small.
-
-        # Arguments
-            plot: Boolean, weather to plot model.
 
         # Returns
             model: Model, model.
@@ -65,8 +61,5 @@ class MobileNetV3_Small(MobileNetBase):
             x = Reshape((self.n_class,))(x)
 
         model = Model(inputs, x)
-
-        if plot:
-            plot_model(model, to_file='images/MobileNetv3_small.png', show_shapes=True)
 
         return model

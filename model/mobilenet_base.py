@@ -3,11 +3,9 @@
     [Searching for MobileNetV3](https://arxiv.org/abs/1905.02244?context=cs)
 """
 
-
-from keras.layers import Conv2D, DepthwiseConv2D, Dense, GlobalAveragePooling2D
-from keras.layers import Activation, BatchNormalization, Add, Multiply, Reshape
-
-from keras import backend as K
+from tensorflow.keras.layers import Conv2D, DepthwiseConv2D, Dense, GlobalAveragePooling2D
+from tensorflow.keras.layers import Activation, BatchNormalization, Add, Multiply, Reshape
+from tensorflow.keras import backend as K
 
 
 class MobileNetBase:

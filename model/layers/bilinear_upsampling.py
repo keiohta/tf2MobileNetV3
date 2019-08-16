@@ -2,8 +2,8 @@
 """
 import numpy as np
 import tensorflow as tf
-import keras.backend as K
-from keras.engine.topology import Layer, InputSpec
+import tf.keras.backend as K
+from tf.keras.engine.topology import Layer, InputSpec
 
 
 def resize_images_bilinear(X, height_factor=1, width_factor=1, target_height=None, target_width=None, data_format='default'):

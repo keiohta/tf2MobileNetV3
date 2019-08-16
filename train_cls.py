@@ -87,7 +87,8 @@ def train():
     earlystop = EarlyStopping(monitor='val_acc', patience=5, verbose=0, mode='auto')
     model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 
-    train_generator, validation_generator, count1, count2 = generate(batch, shape[:2], cfg['train_dir'], cfg['eval_dir'])
+    train_generator, validation_generator, count1, count2 = generate(
+        batch, shape[:2], cfg['train_dir'], cfg['eval_dir'])
 
     hist = model.fit_generator(
         train_generator,

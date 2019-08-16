@@ -4,7 +4,6 @@
 
 from keras.models import Model
 from keras.layers import Conv2D, AveragePooling2D, BatchNormalization, Activation, Multiply, Add
-from keras.utils.vis_utils import plot_model
 from model.layers.bilinear_upsampling import BilinearUpSampling2D
 
 
@@ -56,11 +55,8 @@ class LiteRASSP:
 
         return inputs, out_feature8, out_feature16
 
-    def build(self, plot=False):
+    def build(self):
         """build Lite R-ASPP.
-
-        # Arguments
-            plot: Boolean, weather to plot model.
 
         # Returns
             model: Model, model.
@@ -95,8 +91,5 @@ class LiteRASSP:
         x = Activation('softmax')(x)
 
         model = Model(inputs=inputs, outputs=x)
-
-        if plot:
-            plot_model(model, to_file='images/LR_ASPP.png', show_shapes=True)
 
         return model
